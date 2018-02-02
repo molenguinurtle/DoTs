@@ -16,12 +16,12 @@ TagManager:
   - Respawn
   - Character
   - Weight
-  - Flip
   - Door
   - Cam
   - Jmp
   - Muzik
   - Ceil
+  - Flip
   - Flip
   layers:
   - Default
