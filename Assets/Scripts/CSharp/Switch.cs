@@ -8,7 +8,7 @@ public abstract class Switch : MonoBehaviour
 {
     //This is the base class of all Switch objects in the game. 
 
-    [SerializeField] private int _numToActivate; //This is the amount of Players that need to be standing on a Switch for it to activate
+    [SerializeField] private int _numToActivate = 1; //This is the amount of Players that need to be standing on a Switch for it to activate
     [SerializeField] private int _currentNumOn; //This is the amount of Players that are currently standing on a Switch. We can update this with Unity Events
     [SerializeField] private bool _isActive = true; //This determines if the Switch is active or not. Set to false in DeactivateSwitch
     [SerializeField] private GameObject _switchOccupant; //This is the player that stepped on the Switch. Used to determine if we should activate the Switch again once it's stepped off of
