@@ -11,7 +11,7 @@ public abstract class Switch : MonoBehaviour
     [SerializeField] private int _numToActivate = 1; //This is the amount of Players that need to be standing on a Switch for it to activate
     [SerializeField] private int _currentNumOn; //This is the amount of Players that are currently standing on a Switch. We can update this with Unity Events
     [SerializeField] private bool _isActive = true; //This determines if the Switch is active or not. Set to false in DeactivateSwitch
-    [SerializeField] private GameObject _switchOccupant; //This is the player that stepped on the Switch. Used to determine if we should activate the Switch again once it's stepped off of
+    public GameObject _switchOccupant; //This is the player that stepped on the Switch. Used to determine if we should activate the Switch again once it's stepped off of
     public UnityEvent switchSteppedOn; //Invoke this once a Switch is stepped on to tell any other potential Switches linked to this one
     public UnityEvent switchSteppedOff; //Invoke this once a Switch is stepped off to tell any other potential Switches linked to this one
     public UnityEvent switchTriggered; //Invoke this once a Switch is triggered to tell any other potential Switches linked to this one. This will cause those Switches to call DeactivateSwitch
@@ -19,7 +19,7 @@ public abstract class Switch : MonoBehaviour
 
     public virtual void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && _isActive)
+        if (other.GetComponent<Player>() && _isActive)
         {
             _switchOccupant = other.gameObject;
             _currentNumOn++;
