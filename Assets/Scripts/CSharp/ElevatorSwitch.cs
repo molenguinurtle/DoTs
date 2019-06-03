@@ -37,6 +37,11 @@ public class ElevatorSwitch : Switch
     //We need to override the OnTriggerEnter and OnTriggerExit methods
     // Exit: We basically have to override the whole thing and set _needElevate to false
     //Enter: We basically need to call base.Enter + set _needElevate to true
+    public override void OnTriggerEnter(Collider other)
+    {
+        _needElevate = true;
+        base.OnTriggerEnter(other);
+    }
     public override void OnTriggerExit(Collider other)
     {
         if (other.gameObject == _switchOccupant)
